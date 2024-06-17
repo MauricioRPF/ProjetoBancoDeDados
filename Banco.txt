@@ -1,0 +1,87 @@
+CREATE DATABASE IF NOT EXISTS starlink;
+USE starlink;
+
+-- TABELA DE DADOS DE IDENTIFICAÇÃO 
+
+CREATE TABLE IF NOT EXISTS identificacao(
+cpf VARCHAR(11) PRIMARY KEY,
+nome VARCHAR(50) NOT NULL,
+e_mail VARCHAR(100) NOT NULL,
+telefone INT NOT NULL,
+endereco VARCHAR(100)
+);
+ 
+-- TABELA DE INFORMAÇÕES DA CONTA  
+ 
+CREATE TABLE IF NOT EXISTS info_conta(
+cpf VARCHAR(11) PRIMARY KEY,
+usuario VARCHAR(15) NOT NULL,
+senha VARCHAR(30) NOT NULL,
+nascimento DATE NOT NULL,
+genero ENUM ('M', 'F') NOT NULL,
+foto BLOB,
+FOREIGN KEY (cpf) REFERENCES identificacao(cpf)
+);
+
+-- TABELA DE ATIVIDADES E COMPORTAMENTO ONLINE 
+
+CREATE TABLE IF NOT EXISTS atv_online(
+cpf VARCHAR(11),
+historico TEXT,
+preferencias TEXT,
+compras TEXT,
+duracao_sessoes TIME,
+click_ad INT,
+FOREIGN KEY (cpf) REFERENCES identificacao(cpf)
+);
+
+-- TABELA DADOS DE LOCALIZAÇÃO
+
+CREATE TABLE IF NOT EXISTS dados_localizacao(
+cpf VARCHAR(11), 
+loc_geografica VARCHAR(255),
+locais_visitados TEXT,
+FOREIGN KEY (cpf) REFERENCES identificacao(cpf)
+);
+
+-- TABELA INFORMAÇÕES SOCIAIS 
+
+CREATE TABLE IF NOT EXISTS info_sociais(
+cpf VARCHAR(11),
+interacoes TEXT,
+amigos TEXT,
+FOREIGN KEY (cpf) REFERENCES identificacao(cpf)
+);
+  
+-- TABELA DE INFORMAÇÕES DE PAGAMENTO
+
+CREATE TABLE IF NOT EXISTS info_pagamento(
+cpf VARCHAR(11),
+cartao VARCHAR(100),
+historico_transacoes TEXT,
+FOREIGN KEY (cpf) REFERENCES identificacao(cpf)
+);
+
+-- TABELA DE PREFERENCIAS DE CONFIG
+
+CREATE TABLE IF NOT EXISTS pref_config(
+cpf VARCHAR(11),
+idioma_pref VARCHAR(50),
+config_privacidade TEXT,
+pref_notificacao TEXT,
+FOREIGN KEY (cpf) REFERENCES identificacao(cpf)
+);
+
+-- TABELA DE INFORMAÇÕES TECNICAS 
+
+CREATE TABLE IF NOT EXISTS info_tecnicas(
+cpf VARCHAR(11),
+tipo_dispositivo ENUM ('computador', 'celular','tablet'),
+so VARCHAR(50),
+nav_web VARCHAR(50),
+ende_ip INT,
+FOREIGN KEY (cpf) REFERENCES identificacao(cpf)
+);
+
+-- Visualização da estrutura da tabela info_tecnicas
+DESCRIBE info_tecnicas;

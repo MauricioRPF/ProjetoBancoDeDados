@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Conta</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Consultar Conta</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="cpf">CPF</label>
+                <input type="text" class="form-control" id="cpf" name="cpf" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Consultar</button>
+        </form>
+
+        {% if conta %}
+        <div class="mt-5">
+            <h2>Resultado da Consulta</h2>
+
+            <h3>Informações da Conta</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>CPF</th>
+                        <th>Usuário</th>
+                        <th>Senha</th>
+                        <th>Data de Nascimento</th>
+                        <th>Gênero</th>
+                        <th>Foto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in conta %}
+                    <tr>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                        <td>{{ row[3] }}</td>
+                        <td>{{ row[4] }}</td>
+                        <td><img src="data:image/jpeg;base64,{{ row[5] | b64encode }}" alt="Foto" style="width: 100px; height: 100px;"></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <h3>Preferências de Configuração</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>CPF</th>
+                        <th>Idioma Preferido</th>
+                        <th>Configurações de Privacidade</th>
+                        <th>Preferências de Notificação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in pref_config %}
+                    <tr>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                        <td>{{ row[3] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <h3>Atividade Online</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>CPF</th>
+                        <th>Histórico</th>
+                        <th>Preferências</th>
+                        <th>Compras</th>
+                        <th>Duração das Sessões</th>
+                        <th>Clicks em Anúncios</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in atv_online %}
+                    <tr>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                        <td>{{ row[3] }}</td>
+                        <td>{{ row[4] }}</td>
+                        <td>{{ row[5] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <h3>Dados de Localização</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>CPF</th>
+                        <th>Localização Geográfica</th>
+                        <th>Locais Visitados</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in dados_localizacao %}
+                    <tr>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <h3>Informações Sociais</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>CPF</th>
+                        <th>Interações</th>
+                        <th>Amigos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in info_sociais %}
+                    <tr>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <h3>Informações de Pagamento</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>CPF</th>
+                        <th>Cartão</th>
+                        <th>Histórico de Transações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in info_pagamento %}
+                    <tr>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <h3>Informações Técnicas</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>CPF</th>
+                        <th>Tipo de Dispositivo</th>
+                        <th>Sistema Operacional</th>
+                        <th>Navegador Web</th>
+                        <th>Endereço IP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in info_tecnicas %}
+                    <tr>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                        <td>{{ row[3] }}</td>
+                        <td>{{ row[4] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+        
+        <!-- Botão para retornar à página index -->
+        <div class="mt-5">
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Voltar à Página Inicial</a>
+        </div>
+    </div>
+</body>
+</html>

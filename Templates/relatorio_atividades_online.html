@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Atividades Online</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Relatório de Atividades Online</h1>
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>CPF</th>
+                    <th>Histórico</th>
+                    <th>Preferências</th>
+                    <th>Compras</th>
+                    <th>Duração das Sessões</th>
+                    <th>Clicks em Anúncios</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for atividade in atividades %}
+                <tr>
+                    <td>{{ atividade[0] }}</td>
+                    <td>{{ atividade[1] }}</td>
+                    <td>{{ atividade[2] }}</td>
+                    <td>{{ atividade[3] }}</td>
+                    <td>{{ atividade[4] }}</td>
+                    <td>{{ atividade[5] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

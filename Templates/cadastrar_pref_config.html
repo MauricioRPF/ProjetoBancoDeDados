@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Preferências de Configuração</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Cadastrar Preferências de Configuração</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="cpf">CPF</label>
+                <input type="text" class="form-control" id="cpf" name="cpf" required>
+            </div>
+            <div class="form-group">
+                <label for="idioma_pref">Idioma Preferido</label>
+                <input type="text" class="form-control" id="idioma_pref" name="idioma_pref" required>
+            </div>
+            <div class="form-group">
+                <label for="config_privacidade">Configurações de Privacidade</label>
+                <textarea class="form-control" id="config_privacidade" name="config_privacidade" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="pref_notificacao">Preferências de Notificação</label>
+                <textarea class="form-control" id="pref_notificacao" name="pref_notificacao" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>

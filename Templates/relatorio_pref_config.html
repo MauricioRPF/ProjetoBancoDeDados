@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Preferências de Configuração</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Relatório de Preferências de Configuração</h1>
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>CPF</th>
+                    <th>Idioma Preferido</th>
+                    <th>Configurações de Privacidade</th>
+                    <th>Preferências de Notificação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for config in configs %}
+                <tr>
+                    <td>{{ config[0] }}</td>
+                    <td>{{ config[1] }}</td>
+                    <td>{{ config[2] }}</td>
+                    <td>{{ config[3] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

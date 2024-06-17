@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Atividade Online</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Consultar Atividade Online</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="cpf">CPF</label>
+                <input type="text" class="form-control" id="cpf" name="cpf" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Consultar</button>
+        </form>
+
+        {% if atividade %}
+        <div class="mt-5">
+            <h2>Resultado da Consulta</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>CPF</th>
+                        <th>Histórico</th>
+                        <th>Preferências</th>
+                        <th>Compras</th>
+                        <th>Duração das Sessões</th>
+                        <th>Clicks em Anúncios</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in atividade %}
+                    <tr>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                        <td>{{ row[3] }}</td>
+                        <td>{{ row[4] }}</td>
+                        <td>{{ row[5] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

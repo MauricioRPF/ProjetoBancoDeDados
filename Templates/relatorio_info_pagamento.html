@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Informações de Pagamento</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Relatório de Informações de Pagamento</h1>
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>CPF</th>
+                    <th>Cartão</th>
+                    <th>Histórico de Transações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for info in infos %}
+                <tr>
+                    <td>{{ info[0] }}</td>
+                    <td>{{ info[1] }}</td>
+                    <td>{{ info[2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

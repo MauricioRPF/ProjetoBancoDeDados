@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Informações Técnicas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Cadastrar Informações Técnicas</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="cpf">CPF</label>
+                <input type="text" class="form-control" id="cpf" name="cpf" required>
+            </div>
+            <div class="form-group">
+                <label for="tipo_dispositivo">Tipo de Dispositivo</label>
+                <select class="form-control" id="tipo_dispositivo" name="tipo_dispositivo" required>
+                    <option value="computador">Computador</option>
+                    <option value="celular">Celular</option>
+                    <option value="tablet">Tablet</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="so">Sistema Operacional</label>
+                <input type="text" class="form-control" id="so" name="so" required>
+            </div>
+            <div class="form-group">
+                <label for="nav_web">Navegador Web</label>
+                <input type="text" class="form-control" id="nav_web" name="nav_web" required>
+            </div>
+            <div class="form-group">
+                <label for="ende_ip">Endereço IP</label>
+                <input type="text" class="form-control" id="ende_ip" name="ende_ip" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>

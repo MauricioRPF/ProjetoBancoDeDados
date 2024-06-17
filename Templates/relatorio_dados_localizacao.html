@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Dados de Localização</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Relatório de Dados de Localização</h1>
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>CPF</th>
+                    <th>Localização Geográfica</th>
+                    <th>Locais Visitados</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dados in dados %}
+                <tr>
+                    <td>{{ dados[0] }}</td>
+                    <td>{{ dados[1] }}</td>
+                    <td>{{ dados[2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
