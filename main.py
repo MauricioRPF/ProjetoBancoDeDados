@@ -12,8 +12,8 @@ app.jinja_env.filters['b64encode'] = b64encode
 def conectar():
     return mysql.connector.connect(
         host="127.0.0.1",
-        user="Mauricio",  # Substitua pelo seu usuário do MySQL
-        password="#Mallzz52",  # Substitua pela sua senha do MySQL
+        user="-------",  # Substitua pelo seu usuário do MySQL
+        password="------",  # Substitua pela sua senha do MySQL
         database="starlink",
         port=3306
     )
